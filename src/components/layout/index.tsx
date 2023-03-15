@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import Sidebar from "./sidebar";
 import "./styles.scss";
-import { DashboardProvider } from "../../context";
+import { DashboardProvider } from "../../pages/dashboard/context";
 
 const Layout: React.FC<{
   children: React.ReactNode;

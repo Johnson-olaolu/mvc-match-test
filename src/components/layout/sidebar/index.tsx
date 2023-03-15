@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles.scss";
-import BarChartIcon from "../../../../../assets/icons/BarChart.svg";
-import DashboardIcon from "../../../../../assets/icons/Dashboard.svg";
-import TelevisonIcon from "../../../../../assets/icons/Television.svg";
-import PieChartIcon from "../../../../../assets/icons/PieChart.svg";
-import PowerIcon from "../../../../../assets/icons/Power.svg";
+import BarChartIcon from "../../../assets/icons/BarChart.svg";
+import DashboardIcon from "../../../assets/icons/Dashboard.svg";
+import TelevisonIcon from "../../../assets/icons/Television.svg";
+import PieChartIcon from "../../../assets/icons/PieChart.svg";
+import PowerIcon from "../../../assets/icons/Power.svg";
 
 const Sidebar = () => {
   return (
