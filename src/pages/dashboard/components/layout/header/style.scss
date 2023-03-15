@@ -1,0 +1,52 @@
+header {
+  flex-shrink: 0;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #f3f6f9;
+    height: 80px;
+    padding: 36px;
+    .menu-section-1 {
+      gap: 40px;
+      display: flex;
+      align-items: center;
+      img {
+        height: 40px;
+        width: auto;
+      }
+      svg {
+      }
+    }
+    .menu-section-2 {
+      padding-right: 64px;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .initials {
+          height: 42px;
+          width: 42px;
+          background: #f6ca65;
+          border-radius: 5px;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 28px;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .name {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+          color: #005b96;
+        }
+      }
+    }
+  }
+}

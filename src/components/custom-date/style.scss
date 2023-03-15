@@ -1,0 +1,19 @@
+.custom-date {
+  min-width: 118px;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: #1bc5bd;
+  border-radius: 5px;
+  gap: 16px;
+  justify-content: space-between;
+  cursor: not-allowed;
+  p {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+  }
+}
