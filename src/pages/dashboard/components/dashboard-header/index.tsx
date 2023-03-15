@@ -19,7 +19,7 @@ const DashboardHeader = () => {
         <CustomSelect
           placeholder="All Projects"
           options={projectOptions.map((po) => ({ name: po.name, value: po.projectId }))}
-          value={searchFormDetails.projectId}
+          value={searchFormDetails?.projectId}
           handleClick={(e) => {
             setSearchFormDetails({
               ...searchFormDetails,
@@ -30,7 +30,7 @@ const DashboardHeader = () => {
         <CustomSelect
           placeholder="All Gateways"
           options={gatewayOptions.map((go) => ({ name: go.name, value: go.gatewayId }))}
-          value={searchFormDetails.gatewayId}
+          value={searchFormDetails?.gatewayId}
           handleClick={(e) => {
             setSearchFormDetails({
               ...searchFormDetails,
@@ -46,7 +46,7 @@ const DashboardHeader = () => {
               from: moment(d).format("YYYY-MM-DD"),
             });
           }}
-          value={moment(searchFormDetails.from).toDate()}
+          value={searchFormDetails?.from ? moment(searchFormDetails?.from).toDate() : undefined}
         />
         <CustomDate
           placeholder="To date"
@@ -56,8 +56,8 @@ const DashboardHeader = () => {
               to: moment(d).format("YYYY-MM-DD"),
             });
           }}
-          minDate={moment(searchFormDetails.from).toDate()}
-          value={moment(searchFormDetails.to).toDate()}
+          minDate={searchFormDetails?.from ? moment(searchFormDetails?.from).toDate() : undefined}
+          value={searchFormDetails?.to ? moment(searchFormDetails?.to).toDate() : undefined}
         />
         <CustomButton onClick={generateReport} title="Generate Report" />
       </div>

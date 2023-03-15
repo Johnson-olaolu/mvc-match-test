@@ -1,0 +1,94 @@
+.dashboard-table {
+  flex-grow: 1;
+  .dashboard-table-container {
+    padding: 18px 24px;
+    background: #f1fafe;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    .dashboard-table-selector-text {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #011f4b;
+      margin-bottom: 36px;
+    }
+    .dashboard-table-table {
+      margin-bottom: 6px;
+      .table-title {
+        cursor: pointer;
+        padding: 26px 28px;
+        background: #ffffff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+          color: #011f4b;
+        }
+      }
+      .table-body {
+        padding: 14px 0;
+        .table-body-title-row {
+          display: flex;
+          height: 36px;
+          padding: 6px;
+          padding: 0 24px;
+          align-items: center;
+          background-color: white;
+          .table-body-title-row-element {
+            width: 100%;
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 164.4%;
+            color: #011f4b;
+            &:first-child {
+              text-align: left;
+            }
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+        .table-body-body-row {
+          display: flex;
+          height: 36px;
+          padding: 6px;
+          padding: 0 24px;
+          align-items: center;
+          &:nth-child(odd) {
+            background-color: white;
+          }
+          .table-body-body-row-element {
+            width: 100%;
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 164.4%;
+            color: #011f4b;
+            &:first-child {
+              text-align: left;
+            }
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dashboard-table-total {
+    padding: 18px;
+    background: #f1fafe;
+    border-radius: 10px;
+    p {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #011f4b;
+    }
+  }
+}

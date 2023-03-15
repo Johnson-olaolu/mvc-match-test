@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 const CustomDate: React.FC<{
   placeholder: string;
-  value: Date;
+  value?: Date;
   minDate?: Date;
   maxDate?: Date;
   onChange: (d: Date) => void;

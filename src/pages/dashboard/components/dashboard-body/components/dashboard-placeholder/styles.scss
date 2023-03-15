@@ -1,0 +1,24 @@
+.dashboard-placeholder {
+  padding: 138px 0;
+  .dashboard-placeholder-container {
+    max-width: 470px;
+    margin: 0 auto;
+    text-align: center;
+    .dashboard-placeholder-title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      color: #011f4b;
+      margin-bottom: 4px;
+    }
+    .dashboard-placeholder-text {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #7e8299;
+      margin-bottom: 52px;
+    }
+  }
+}

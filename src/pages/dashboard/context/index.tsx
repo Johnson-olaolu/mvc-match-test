@@ -7,22 +7,28 @@ const DashboardContext = createContext({});
 interface IDashboardContext {
   projectOptions: IProject[];
   gatewayOptions: IGateway[];
-  searchFormDetails: {
+  searchFormDetails?: {
     from: string;
     to: string;
     projectId?: string | undefined;
     gatewayId?: string | undefined;
   };
   setSearchFormDetails: React.Dispatch<
-    React.SetStateAction<{
-      from: string;
-      to: string;
-      projectId?: string | undefined;
-      gatewayId?: string | undefined;
-    }>
+    React.SetStateAction<
+      | {
+          from?: string;
+          to?: string;
+          projectId?: string | undefined;
+          gatewayId?: string | undefined;
+        }
+      | undefined
+    >
   >;
   generateReport: () => Promise<void>;
   report?: IReport[];
+  showGraph: boolean;
+  activeGateway: string;
+  activeProject: string;
 }
 
 export const DashboardProvider: React.FC<{
@@ -30,17 +36,17 @@ export const DashboardProvider: React.FC<{
 }> = ({ children }) => {
   const [projectOptions, setProjectOptions] = useState<IProject[]>([]);
   const [gatewayOptions, setGatewayOptions] = useState<IGateway[]>([]);
+  const [showGraph, setShowGraph] = useState<boolean>(false);
+  const [activeProject, setActiveProject] = useState<string>();
+  const [activeGateway, setActiveGateway] = useState<string>();
   const [report, setReport] = useState<IReport[]>();
 
   const [searchFormDetails, setSearchFormDetails] = useState<{
-    from: string;
-    to: string;
+    from?: string;
+    to?: string;
     projectId?: string;
     gatewayId?: string;
-  }>({
-    from: "2021-01-01",
-    to: "2021-12-31",
-  });
+  }>();
 
   const fetchOptions = async () => {
     const p = await getAllProjects();
@@ -54,8 +60,19 @@ export const DashboardProvider: React.FC<{
   }, []);
 
   const generateReport = async () => {
-    const result = await fetchReport(searchFormDetails);
+    const result = await fetchReport({
+      ...searchFormDetails,
+      from: searchFormDetails?.from || "2021-01-01",
+      to: searchFormDetails?.to || "2021-12-31",
+    });
     setReport(result.data);
+    setActiveProject(projectOptions.find((p) => p.projectId == searchFormDetails?.projectId)?.name);
+    setActiveGateway(gatewayOptions.find((g) => g.gatewayId == searchFormDetails?.gatewayId)?.name);
+    if ((!searchFormDetails?.gatewayId && searchFormDetails?.projectId) || (searchFormDetails?.gatewayId && !searchFormDetails?.projectId)) {
+      setShowGraph(true);
+    } else {
+      setShowGraph(false);
+    }
   };
 
   const value = useMemo(
@@ -66,8 +83,11 @@ export const DashboardProvider: React.FC<{
       setSearchFormDetails,
       generateReport,
       report,
+      showGraph,
+      activeGateway,
+      activeProject,
     }),
-    [projectOptions, gatewayOptions, searchFormDetails, report]
+    [projectOptions, gatewayOptions, searchFormDetails, report, showGraph]
   );
   return <DashboardContext.Provider value={value}>{children}</DashboardContext.Provider>;
 };
